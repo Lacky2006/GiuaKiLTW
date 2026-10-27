@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="vi" data-giao-dien="sang">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Trang giới thiệu thành viên Nhóm 8 môn Lập Trình Web"
+    />
+    <title>Nhóm 8 | Lập Trình Web</title>
+
+    <style>
+      :root {
+        --mau-nen: #f4f6fc;
+        --mau-be-mat: rgba(255, 255, 255, 0.84);
+        --mau-chu: #172033;
+        --mau-chu-phu: #667085;
+        --mau-chinh: #5558d9;
+        --mau-chinh-dam: #3e41b7;
+        --mau-phu: #15aa9c;
+        --mau-vien: rgba(23, 32, 51, 0.12);
+        --bong-do: 0 20px 55px rgba(43, 51, 105, 0.14);
+        --chuyen-dong: 250ms ease;
+      }
+
+      [data-giao-dien="toi"] {
+        --mau-nen: #111420;
+        --mau-be-mat: rgba(28, 33, 50, 0.86);
+        --mau-chu: #f7f8fc;
+        --mau-chu-phu: #abb3c7;
+        --mau-chinh: #9092ff;
+        --mau-chinh-dam: #afb0ff;
+        --mau-phu: #4dd5c4;
+        --mau-vien: rgba(255, 255, 255, 0.12);
+        --bong-do: 0 20px 55px rgba(0, 0, 0, 0.3);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: var(--mau-nen);
+        color: var(--mau-chu);
+        font-family: Arial, Helvetica, sans-serif;
+        transition:
+          background-color var(--chuyen-dong),
+          color var(--chuyen-dong);
+      }
+
+      body::before,
+      body::after {
+        position: fixed;
+        z-index: -1;
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        filter: blur(90px);
+        content: "";
+        opacity: 0.2;
+      }
+
+      body::before {
+        top: -110px;
+        left: -130px;
+        background: var(--mau-chinh);
+      }
+
+      body::after {
+        right: -120px;
+        bottom: -120px;
+        background: var(--mau-phu);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .khung-noi-dung {
+        width: min(calc(100% - 40px), 1120px);
+        margin-inline: auto;
+      }
+
+      .dau-trang {
+        padding: 24px 0;
+      }
+
+      .dau-trang__noi-dung {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .thuong-hieu {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+      }
+
+      .thuong-hieu__so {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 15px;
+        background: linear-gradient(135deg, var(--mau-chinh), var(--mau-phu));
+        box-shadow: var(--bong-do);
+        color: #fff;
+      }
+
+      .thuong-hieu__ten {
+        display: grid;
+        gap: 2px;
+      }
+
+      .thuong-hieu__ten small {
+        color: var(--mau-chu-phu);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nut-giao-dien {
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--mau-vien);
+        border-radius: 999px;
+        background: var(--mau-be-mat);
+        color: var(--mau-chu);
+        cursor: pointer;
+        transition:
+          border-color var(--chuyen-dong),
+          transform var(--chuyen-dong);
+      }
+
+      .nut-giao-dien:hover {
+        border-color: var(--mau-chinh);
+        transform: translateY(-2px);
+      }
+
+      .gioi-thieu {
+        padding: 68px 0 52px;
+        text-align: center;
+      }
+
+      .gioi-thieu h1 {
+        max-width: 850px;
+        margin: 0 auto 18px;
+        font-size: clamp(2.8rem, 7vw, 5.6rem);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .gioi-thieu h1 span {
+        color: var(--mau-chinh);
+      }
+
+      .gioi-thieu__mo-ta {
+        max-width: 650px;
+        margin: 0 auto;
+        color: var(--mau-chu-phu);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        line-height: 1.7;
+      }
+
+      .thanh-vien {
+        padding: 30px 0 100px;
+      }
+
+      .thanh-vien__luoi {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .the-thanh-vien {
+        position: relative;
+        display: flex;
+        min-height: 360px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 34px 24px;
+        overflow: hidden;
+        border: 1px solid var(--mau-vien);
+        border-radius: 28px;
+        background: var(--mau-be-mat);
+        box-shadow: var(--bong-do);
+        text-align: center;
+        transition:
+          border-color var(--chuyen-dong),
+          transform var(--chuyen-dong),
+          box-shadow var(--chuyen-dong);
+      }
+
+      .the-thanh-vien::before {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 5px;
+        background: linear-gradient(90deg, var(--mau-chinh), var(--mau-phu));
+        content: "";
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--chuyen-dong);
+      }
+
+      .the-thanh-vien:hover,
+      .the-thanh-vien:focus-visible {
+        border-color: var(--mau-chinh);
+        box-shadow: 0 28px 70px rgba(67, 70, 160, 0.22);
+        outline: none;
+        transform: translateY(-9px);
+      }
+
+      .the-thanh-vien:hover::before,
+      .the-thanh-vien:focus-visible::before {
+        transform: scaleX(1);
+      }
+
+      .anh-thanh-vien {
+        position: relative;
+        display: grid;
+        width: 176px;
+        height: 176px;
+        margin-bottom: 25px;
+        place-items: center;
+        overflow: hidden;
+        border: 6px solid var(--mau-be-mat);
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--mau-chinh), var(--mau-phu));
+        box-shadow:
+          0 0 0 3px var(--mau-chinh),
+          0 18px 34px rgba(45, 49, 104, 0.2);
+        color: #fff;
+      }
+
+      .anh-thanh-vien img {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .anh-thanh-vien img.anh-bi-loi {
+        display: none;
+      }
+
+      .the-thanh-vien h2 {
+        margin: 0 0 8px;
+        font-size: 1.34rem;
+      }
+
+      .the-thanh-vien p {
+        margin: 0;
+        color: var(--mau-chu-phu);
+        font-size: 0.92rem;
+      }
+
+      .the-thanh-vien__xem {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 20px;
+        color: var(--mau-chinh);
+        font-size: 0.84rem;
+        font-weight: 800;
+      }
+
+      .the-thanh-vien__xem span {
+        transition: transform var(--chuyen-dong);
+      }
+
+      .the-thanh-vien:hover .the-thanh-vien__xem span {
+        transform: translateX(5px);
+      }
+
+      .chan-trang {
+        padding: 26px 0;
+        border-top: 1px solid var(--mau-vien);
+        color: var(--mau-chu-phu);
+        text-align: center;
+      }
+
+      .chan-trang p {
+        margin: 0;
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 900px) {
+        .thanh-vien__luoi {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .khung-noi-dung {
+          width: min(calc(100% - 28px), 1120px);
+        }
+
+        .thuong-hieu__ten small {
+          display: none;
+        }
+
+        .gioi-thieu {
+          padding-top: 48px;
+        }
+
+        .thanh-vien__luoi {
+          grid-template-columns: 1fr;
+        }
+
+        .the-thanh-vien {
+          min-height: 340px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="dau-trang">
+      <div class="khung-noi-dung dau-trang__noi-dung">
+        <a
+          class="thuong-hieu"
+          href="index.html"
+          aria-label="Về trang chủ Nhóm 8"
+        >
+          <span class="thuong-hieu__so" aria-hidden="true">08</span>
+          <span class="thuong-hieu__ten">
+            Nhóm 8
+            <small>Lập Trình Web</small>
+          </span>
+        </a>
+
+        <button class="nut-giao-dien" id="nut-giao-dien" type="button">
+          Chế độ tối
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="gioi-thieu" aria-labelledby="tieu-de-chinh">
+        <div class="khung-noi-dung">
+          <h1 id="tieu-de-chinh">Nhóm 8 <span>Lập Trình Web</span></h1>
+        </div>
+      </section>
+
+      <section class="thanh-vien" aria-label="Danh sách thành viên Nhóm 8">
+        <div class="khung-noi-dung thanh-vien__luoi">
+          <a
+            class="the-thanh-vien"
+            href="NguyenQuocHuy/index.html"
+            aria-label="Xem profile thành viên 1"
+          >
+            <div class="anh-thanh-vien">
+              <img
+                src="NguyenQuocHuy/assets/images/profile.png"
+                alt="Ảnh thành viên 1"
+              />
+              <span>01</span>
+            </div>
+            <h2>Nguyễn Quốc Huy</h2>
+            <p>Team Leader</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+
+          <a
+            class="the-thanh-vien"
+            href="LeMinhHau/index.html"
+            aria-label="Xem profile thành viên 2"
+          >
+            <div class="anh-thanh-vien">
+              <img src="LeMinhHau/" alt="Ảnh thành viên 2" />
+              <span>02</span>
+            </div>
+            <h2>Lê Minh Hậu</h2>
+            <p>Thành Viên</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+          <a
+            class="the-thanh-vien"
+            href="DoThienLoc/index.html"
+            aria-label="Xem profile thành viên 3"
+          >
+            <div class="anh-thanh-vien">
+              <img src="DoThienLoc/image.jpg" alt="Ảnh thành viên 3" />
+              <span>03</span>
+            </div>
+            <h2>Đỗ Thiên Lộc</h2>
+            <p>Thành viên</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+
+          <a
+            class="the-thanh-vien"
+            href="DoThienPhuc/index.html"
+            aria-label="Xem profile thành viên 4"
+          >
+            <div class="anh-thanh-vien">
+              <img
+                src="assets/images/thanh-vien-4.jpg"
+                alt="Ảnh thành viên 4"
+              />
+              <span>04</span>
+            </div>
+            <h2>Đỗ Thiên Phúc</h2>
+            <p>Thành viên</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+
+          <a
+            class="the-thanh-vien"
+            href="HoangVinhPhuc/index.html"
+            aria-label="Xem profile thành viên 5"
+          >
+            <div class="anh-thanh-vien">
+              <img src="HoangVinhPhuc/" alt="Ảnh thành viên 5" />
+              <span>05</span>
+            </div>
+            <h2>Hoàng Vĩnh Phúc</h2>
+            <p>Thành viên</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+
+          <a
+            class="the-thanh-vien"
+            href="PhamToVan/index.html"
+            aria-label="Xem profile thành viên 6"
+          >
+            <div class="anh-thanh-vien">
+              <img src="PhamToVan/" alt="Ảnh thành viên 6" />
+              <span>06</span>
+            </div>
+            <h2>Phạm Tô Văn</h2>
+            <p>Thành viên</p>
+            <span class="the-thanh-vien__xem"
+              >Xem portfolio <span aria-hidden="true">→</span></span
+            >
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="chan-trang">
+      <div class="khung-noi-dung">
+        <p>© <span id="nam-hien-tai"></span> Nguyễn Quốc Huy</p>
+      </div>
+    </footer>
+
+    <script>
+      "use strict";
+
+      const nutGiaoDien = document.querySelector("#nut-giao-dien");
+      const giaoDienDaLuu = localStorage.getItem("giao-dien-nhom-8");
+
+      if (giaoDienDaLuu === "toi") {
+        document.documentElement.dataset.giaoDien = "toi";
+        nutGiaoDien.textContent = "Chế độ sáng";
+      }
+
+      nutGiaoDien.addEventListener("click", function () {
+        const dangLaCheDoToi =
+          document.documentElement.dataset.giaoDien === "toi";
+        const giaoDienMoi = dangLaCheDoToi ? "sang" : "toi";
+
+        document.documentElement.dataset.giaoDien = giaoDienMoi;
+        nutGiaoDien.textContent =
+          giaoDienMoi === "toi" ? "Chế độ sáng" : "Chế độ tối";
+        localStorage.setItem("giao-dien-nhom-8", giaoDienMoi);
+      });
+
+      document.querySelector("#nam-hien-tai").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
