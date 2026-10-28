@@ -1,671 +1,303 @@
 <!doctype html>
-<html lang="vi" data-giao-dien="sang">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portfolio cá nhân của Nguyễn Quốc Huy - Sinh viên năm 3 ngành Công nghệ Thông tin tại Trường Đại học Giao thông vận tải TP. Hồ Chí Minh (UTH)."
-    />
-    <meta name="theme-color" content="#f4f2eb" />
+    <meta name="description" content="Portfolio cá nhân của Nguyễn Quốc Huy" />
     <title>Nguyễn Quốc Huy</title>
-    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" />
-    <script>
-      try {
-        const giaoDienDaLuu = localStorage.getItem("giao-dien-portfolio");
-        const giaoDienHeThong = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches
-          ? "toi"
-          : "sang";
-        document.documentElement.dataset.giaoDien =
-          giaoDienDaLuu || giaoDienHeThong;
-      } catch (loi) {
-        document.documentElement.dataset.giaoDien = "sang";
-      }
-    </script>
+    <link rel="icon" href="assets/images/logo.jpg" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    <a class="lien-ket-bo-qua" href="#noi-dung-chinh"
-      >Bỏ qua và đến nội dung chính</a
-    >
-
-    <header class="dau-trang" id="dau-trang">
-      <nav class="dieu-huong khung-noi-dung" aria-label="Điều hướng chính">
-        <a
-          class="dieu-huong__thuong-hieu"
-          href="#trang-dau"
-          aria-label="Trang chủ của Quốc Huy"
-        >
-          <img
-            class="dieu-huong__logo"
-            src="assets/images/logo.jpg"
-            alt=""
-            width="38"
-            height="38"
-          />
-          <span class="dieu-huong__ten">Quốc Huy<span>.</span></span>
+    <header class="dau-trang">
+      <nav class="thanh-dieu-huong khung" aria-label="Điều hướng chính">
+        <a class="thuong-hieu" href="#trang-chu">
+          <img src="assets/images/logo.jpg" alt="Logo Nguyễn Quốc Huy" />
+          <span>Quốc Huy</span>
         </a>
-        <div class="dieu-huong__trinh-don" id="trinh-don-dieu-huong">
-          <ul class="dieu-huong__danh-sach">
-            <li>
-              <a class="dieu-huong__lien-ket dang-chon" href="#gioi-thieu"
-                >Giới thiệu</a
-              >
-            </li>
-            <li>
-              <a class="dieu-huong__lien-ket" href="#muc-tieu">Mục tiêu</a>
-            </li>
-            <li><a class="dieu-huong__lien-ket" href="#ky-nang">Kỹ năng</a></li>
-            <li>
-              <a class="dieu-huong__lien-ket" href="#hanh-trinh">Hành trình</a>
-            </li>
-            <li><a class="dieu-huong__lien-ket" href="#du-an">Dự án</a></li>
-            <li>
-              <a class="dieu-huong__lien-ket" href="#ngoai-code">Chứng chỉ</a>
-            </li>
-          </ul>
-        </div>
-        <div class="dieu-huong__thao-tac">
-          <button
-            class="nut-bieu-tuong nut-doi-giao-dien"
-            id="nut-doi-giao-dien"
-            type="button"
-            aria-label="Chuyển sang giao diện tối"
-            title="Đổi giao diện sáng/tối"
-          >
-            <svg
-              class="nut-doi-giao-dien__mat-troi"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="4"></circle>
-              <path
-                d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"
-              ></path>
-            </svg>
-            <svg
-              class="nut-doi-giao-dien__mat-trang"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-            </svg>
-          </button>
-          <button
-            class="nut-bieu-tuong dieu-huong__nut-mo"
-            id="nut-mo-dieu-huong"
-            type="button"
-            aria-label="Mở menu điều hướng"
-            aria-controls="trinh-don-dieu-huong"
-            aria-expanded="false"
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </div>
+        <button
+          class="nut-menu"
+          id="nut-menu"
+          type="button"
+          aria-expanded="false"
+        >
+          ☰ Menu
+        </button>
+        <ul class="danh-sach-menu" id="danh-sach-menu">
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#muc-tieu">Mục tiêu</a></li>
+          <li><a href="#ky-nang">Kỹ năng</a></li>
+          <li><a href="#hanh-trinh">Hành trình</a></li>
+          <li><a href="#du-an">Dự án</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
       </nav>
     </header>
 
-    <main id="noi-dung-chinh">
-      <section
-        class="trang-dau phan-noi-dung"
-        id="trang-dau"
-        aria-labelledby="tieu-de-trang-dau"
-      >
-        <div
-          class="trang-dau__trang-tri trang-dau__trang-tri--mot"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="trang-dau__trang-tri trang-dau__trang-tri--hai"
-          aria-hidden="true"
-        ></div>
-        <div class="trang-dau__noi-dung khung-noi-dung">
-          <div class="trang-dau__gioi-thieu hien-khi-cuon">
-            <p class="nhan-gioi-thieu"><span></span> Xin chào, mình là</p>
-            <h1 class="trang-dau__tieu-de" id="tieu-de-trang-dau">
-              Nguyễn Quốc Huy
-            </h1>
-            <p class="trang-dau__mo-ta">
-              Sinh viên năm 3 ngành Công nghệ Thông tin tại Trường Đại học Giao
-              thông vận tải TP. Hồ Chí Minh (UTH), yêu thích lập trình và xây
-              dựng bot Discord.
-            </p>
-            <div class="trang-dau__thao-tac">
-              <a class="nut nut--chinh" href="#du-an"
-                >Xem dự án <span aria-hidden="true">↗</span></a
-              >
-              <a class="nut nut--vien" href="#lien-he">Liên hệ với mình</a>
-            </div>
-            <ul
-              class="trang-dau__mang-xa-hoi"
-              aria-label="Liên kết mạng xã hội"
+    <main>
+      <section class="trang-chu khung" id="trang-chu">
+        <div class="trang-chu__chu">
+          <p class="nhan">Xin chào, mình là</p>
+          <h1>Nguyễn Quốc Huy</h1>
+          <p>
+            Sinh viên năm 3 ngành Công nghệ Thông tin tại Trường Đại học Giao
+            thông vận tải TP. Hồ Chí Minh (UTH). Mình yêu thích lập trình và xây
+            dựng bot Discord.
+          </p>
+          <a class="nut nut--chinh" href="#du-an">Xem dự án</a>
+          <a class="nut" href="#lien-he">Liên hệ</a>
+          <p class="lien-ket-xa-hoi">
+            <a
+              href="https://github.com/Lacky2006"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub</a
             >
+            <a
+              href="https://discord.com/users/1054688789848657920"
+              target="_blank"
+              rel="noreferrer"
+              >Discord</a
+            >
+            <a
+              href="https://www.facebook.com/lacky2k6"
+              target="_blank"
+              rel="noreferrer"
+              >Facebook</a
+            >
+            <a href="mailto:quochuyit.nguyen@gmail.com">Email</a>
+          </p>
+        </div>
+        <div>
+          <img
+            src="assets/images/profile.png"
+            alt="Ảnh chân dung Nguyễn Quốc Huy"
+          />
+        </div>
+      </section>
+
+      <section class="phan" id="gioi-thieu">
+        <div class="khung">
+          <h2>Giới thiệu bản thân</h2>
+          <div class="hai-cot">
+            <div>
+              <p>
+                Mình là sinh viên Công nghệ Thông tin yêu thích lập trình và xây
+                dựng các hệ thống tự động.
+              </p>
+              <p>
+                Mình quan tâm đến Python, Java, C# và phát triển bot Discord
+                phục vụ cộng đồng. Mình thường học thêm qua các dự án thực tế.
+              </p>
+            </div>
+            <ul class="thong-tin">
+              <li><strong>Họ tên:</strong> Nguyễn Quốc Huy</li>
+              <li><strong>Ngày sinh:</strong> 06/12/2006</li>
+              <li><strong>Địa chỉ:</strong> TP. Hồ Chí Minh</li>
               <li>
-                <a
-                  href="https://github.com/Lacky2006"
-                  target="_blank"
-                  rel="noreferrer"
-                  >GitHub</a
+                <strong>Email:</strong>
+                <a href="mailto:quochuyit.nguyen@gmail.com"
+                  >quochuyit.nguyen@gmail.com</a
                 >
               </li>
               <li>
-                <a
-                  href="https://discord.com/channels/@1054688789848657920"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Discord</a
-                >
+                <strong>Trường:</strong> Đại học Giao thông vận tải TP.HCM (UTH)
               </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/lacky2k6"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Facebook</a
-                >
-              </li>
-              <li><a href="mailto:quochuyit.nguyen@gmail.com">Email</a></li>
             </ul>
           </div>
-          <div
-            class="trang-dau__hinh-anh hien-khi-cuon"
-            aria-label="Ảnh đại diện minh họa của Nguyễn Quốc Huy"
-          >
-            <div class="anh-dai-dien">
-              <span class="anh-dai-dien__nhan">Sinh viên CNTT · UTH</span>
-              <img
-                class="anh-dai-dien__anh"
-                src="assets/images/profile.png"
-                alt="Ảnh chân dung Nguyễn Quốc Huy"
-                width="1059"
-                height="1140"
-              />
-              <div
-                class="anh-dai-dien__huy-hieu anh-dai-dien__huy-hieu--ma-nguon"
-                aria-hidden="true"
-              >
-                &lt;/&gt;
-              </div>
-              <div
-                class="anh-dai-dien__huy-hieu anh-dai-dien__huy-hieu--bot"
-                aria-hidden="true"
-              >
-                BOT
-              </div>
-            </div>
-          </div>
-        </div>
-        <a
-          class="trang-dau__cuon"
-          href="#gioi-thieu"
-          aria-label="Cuộn xuống phần giới thiệu"
-          ><span>Khám phá</span><span aria-hidden="true">↓</span></a
-        >
-      </section>
-
-      <section
-        class="gioi-thieu phan-noi-dung"
-        id="gioi-thieu"
-        aria-labelledby="tieu-de-gioi-thieu"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">01 / Giới thiệu</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-gioi-thieu">
-              Một chút về mình
-            </h2>
-          </div>
-          <div class="gioi-thieu__bo-cuc">
-            <article class="gioi-thieu__cau-chuyen hien-khi-cuon">
-              <p class="gioi-thieu__dan">
-                Mình là sinh viên Công nghệ Thông tin yêu thích
-                <strong>lập trình</strong> và
-                <strong>xây dựng các hệ thống tự động</strong>.
-              </p>
-              <p>
-                Hiện mình là sinh viên năm 3 tại Trường Đại học Giao thông vận
-                tải TP. Hồ Chí Minh (UTH). Mình quan tâm đến Python, Java, C# và
-                phát triển bot Discord phục vụ cộng đồng.
-              </p>
-              <p>
-                Mình luôn chủ động học hỏi qua các dự án thực tế, đặc biệt là
-                những bài toán liên quan đến quản lý máy chủ, tự động hóa và
-                theo dõi hoạt động trong game.
-              </p>
-            </article>
-            <dl
-              class="gioi-thieu__thong-tin hien-khi-cuon"
-              aria-label="Thông tin cá nhân"
-            >
-              <div class="gioi-thieu__muc-thong-tin">
-                <dt>Họ và tên</dt>
-                <dd>Nguyễn Quốc Huy</dd>
-              </div>
-              <div class="gioi-thieu__muc-thong-tin">
-                <dt>Ngày sinh</dt>
-                <dd>06 / 12 / 2006</dd>
-              </div>
-              <div class="gioi-thieu__muc-thong-tin">
-                <dt>Địa chỉ</dt>
-                <dd>TP. Hồ Chí Minh, Việt Nam</dd>
-              </div>
-              <div class="gioi-thieu__muc-thong-tin">
-                <dt>Email</dt>
-                <dd>
-                  <a href="mailto:quochuyit.nguyen@gmail.com"
-                    >quochuyit.nguyen@gmail.com</a
-                  >
-                </dd>
-              </div>
-              <div class="gioi-thieu__muc-thong-tin">
-                <dt>Trường</dt>
-                <dd>Đại học Giao thông vận tải TP.HCM (UTH)</dd>
-              </div>
-            </dl>
-          </div>
         </div>
       </section>
 
-      <section
-        class="muc-tieu phan-noi-dung phan-noi-dung--nen-nhat"
-        id="muc-tieu"
-        aria-labelledby="tieu-de-muc-tieu"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">02 / Mục tiêu</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-muc-tieu">
-              Hướng đi mình theo đuổi
-            </h2>
-            <p class="tieu-de-phan__mo-ta">
-              Từng bước củng cố nền tảng lập trình để xây dựng những sản phẩm và
-              hệ thống tự động hữu ích.
-            </p>
-          </div>
-          <div class="muc-tieu__bo-cuc">
-            <article class="the-muc-tieu hien-khi-cuon">
-              <span class="the-muc-tieu__so">01</span>
+      <section class="phan nen-phu" id="muc-tieu">
+        <div class="khung">
+          <h2>Mục tiêu</h2>
+          <div class="ba-cot">
+            <article class="the">
               <h3>Ngắn hạn</h3>
               <p>
-                Nâng cao kỹ năng Python, Java, C# và Git/GitHub; hoàn thiện thêm
-                các bot Discord có tính ứng dụng thực tế và hoạt động ổn định.
+                Nâng cao kỹ năng Python, Java, C# và Git/GitHub; hoàn thiện các
+                bot Discord có tính ứng dụng thực tế.
               </p>
             </article>
-            <article class="the-muc-tieu the-muc-tieu--noi-bat hien-khi-cuon">
-              <span class="the-muc-tieu__so">02</span>
+            <article class="the">
               <h3>Dài hạn</h3>
               <p>
                 Trở thành Full Stack Developer, kết hợp tốt cùng AI để tối ưu
                 hóa công việc.
               </p>
             </article>
-            <article class="the-muc-tieu hien-khi-cuon">
-              <span class="the-muc-tieu__so">03</span>
+            <article class="the">
               <h3>Giá trị cốt lõi</h3>
               <p>
-                Luôn chủ động học hỏi, cập nhật kiến thức mới và không ngừng
-                nâng cao trải nghiệm người dùng.
+                Chủ động học hỏi, cập nhật kiến thức mới và không ngừng nâng cao
+                trải nghiệm người dùng.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section
-        class="ky-nang phan-noi-dung"
-        id="ky-nang"
-        aria-labelledby="tieu-de-ky-nang"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">03 / Kỹ năng</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-ky-nang">
-              Công cụ &amp; năng lực
-            </h2>
-          </div>
-          <div class="ky-nang__bo-cuc">
-            <div class="ky-nang__chuyen-mon hien-khi-cuon">
+      <section class="phan" id="ky-nang">
+        <div class="khung">
+          <h2>Kỹ năng</h2>
+          <div class="hai-cot">
+            <div class="the">
               <h3>Kỹ năng chuyên môn</h3>
-              <div class="thanh-ky-nang">
-                <div class="thanh-ky-nang__nhan">
-                  <span>Python</span><span>75%</span>
-                </div>
-                <div class="thanh-ky-nang__duong-chay">
-                  <span style="--muc-do: 75%"></span>
-                </div>
-              </div>
-              <div class="thanh-ky-nang">
-                <div class="thanh-ky-nang__nhan">
-                  <span>Java</span><span>70%</span>
-                </div>
-                <div class="thanh-ky-nang__duong-chay">
-                  <span style="--muc-do: 70%"></span>
-                </div>
-              </div>
-              <div class="thanh-ky-nang">
-                <div class="thanh-ky-nang__nhan">
-                  <span>Git / GitHub</span><span>70%</span>
-                </div>
-                <div class="thanh-ky-nang__duong-chay">
-                  <span style="--muc-do: 70%"></span>
-                </div>
-              </div>
-              <div class="thanh-ky-nang">
-                <div class="thanh-ky-nang__nhan">
-                  <span>C#</span><span>65%</span>
-                </div>
-                <div class="thanh-ky-nang__duong-chay">
-                  <span style="--muc-do: 65%"></span>
-                </div>
-              </div>
-            </div>
-            <div class="ky-nang__mem hien-khi-cuon">
-              <h3>Kỹ năng mềm</h3>
-              <ul class="the-ky-nang">
-                <li>Giao tiếp</li>
-                <li>Làm việc nhóm</li>
-                <li>Tư duy phản biện</li>
-                <li>Quản lý thời gian</li>
-                <li>Tự học</li>
-                <li>Giải quyết vấn đề</li>
+              <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>Git / GitHub</li>
+                <li>C#</li>
               </ul>
-              <div class="ky-nang__cong-cu">
-                <h3>Công cụ thường dùng</h3>
-                <ul>
-                  <li><span aria-hidden="true">VS</span> VS Code</li>
-                  <li><span aria-hidden="true">GH</span> GitHub</li>
-                  <li><span aria-hidden="true">U</span> Unity</li>
-                </ul>
-              </div>
+            </div>
+            <div class="the">
+              <h3>Công cụ thường dùng</h3>
+              <ul>
+                <li>Visual Studio Code</li>
+                <li>GitHub</li>
+                <li>Unity</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        class="hanh-trinh phan-noi-dung phan-noi-dung--nen-toi"
-        id="hanh-trinh"
-        aria-labelledby="tieu-de-hanh-trinh"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan tieu-de-phan--sang hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">04 / Hành trình</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-hanh-trinh">
-              Học vấn &amp; Hoạt động
-            </h2>
-          </div>
-          <div class="hanh-trinh__cot">
-            <div class="dong-thoi-gian hien-khi-cuon">
-              <h3 class="dong-thoi-gian__tieu-de">
-                <span aria-hidden="true">◇</span> Học vấn
-              </h3>
-              <article class="dong-thoi-gian__muc">
-                <p class="dong-thoi-gian__ngay">2024 — Hiện tại</p>
+      <section class="phan" id="hanh-trinh">
+        <div class="khung">
+          <h2>Học vấn và hoạt động</h2>
+          <div class="hai-cot">
+            <div>
+              <h3>Học vấn</h3>
+              <article class="moc-thoi-gian">
+                <p><b>2024 – Hiện tại</b></p>
                 <h4>Sinh viên Công nghệ Thông tin</h4>
-                <p class="dong-thoi-gian__dia-diem">
-                  Trường Đại học Giao thông vận tải TP. Hồ Chí Minh (UTH)
-                </p>
-                <p>GPA: 2.95 / 4.0 · Chuyên ngành Công nghệ Thông tin</p>
+                <p>Đại học Giao thông vận tải TP. Hồ Chí Minh (UTH)</p>
+                <p>GPA: 2.95/4.0</p>
               </article>
-              <article class="dong-thoi-gian__muc">
-                <p class="dong-thoi-gian__ngay">2021 — 2024</p>
-                <h4>Trung học Phổ thông</h4>
-                <p class="dong-thoi-gian__dia-diem">Trường THPT Xuân Diệu</p>
-                <p>
-                  Tốt nghiệp loại giỏi và là thành viên CLB Tin học của trường
-                </p>
+              <article class="moc-thoi-gian">
+                <p><b>2021 – 2024</b></p>
+                <h4>Trung học Phổ thông Xuân Diệu</h4>
               </article>
             </div>
-            <div class="dong-thoi-gian hien-khi-cuon">
-              <h3 class="dong-thoi-gian__tieu-de">
-                <span aria-hidden="true">○</span> Hoạt động
-              </h3>
-              <article class="dong-thoi-gian__muc">
-                <p class="dong-thoi-gian__ngay">03/2025 — Hiện tại</p>
-                <h4>Thành viên nhóm lập trình bot Discord</h4>
-                <p class="dong-thoi-gian__dia-diem">Python &amp; Java</p>
-                <p>
-                  Tham gia phát triển và duy trì các bot Discord bằng Python và
-                  Java.
-                </p>
+            <div>
+              <h3>Hoạt động</h3>
+              <article class="moc-thoi-gian">
+                <p><b>03/2025 – Hiện tại</b></p>
+                <h4>Nhóm lập trình bot Discord</h4>
+                <p>Tham gia lập trình bot bằng Python và Java.</p>
               </article>
-              <article class="dong-thoi-gian__muc">
-                <p class="dong-thoi-gian__ngay">11/2024</p>
-                <h4>Tình nguyện viên</h4>
-                <p class="dong-thoi-gian__dia-diem">Cứu trợ thiên tai</p>
-                <p>Tham gia vận chuyển hàng cứu trợ lũ lụt đến miền Trung.</p>
+              <article class="moc-thoi-gian">
+                <p><b>11/2024</b></p>
+                <h4>Tình nguyện viên cứu trợ thiên tai</h4>
+                <p>Tham gia vận chuyển hàng cứu trợ lũ lụt miền Trung.</p>
               </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        class="du-an phan-noi-dung"
-        id="du-an"
-        aria-labelledby="tieu-de-du-an"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">05 / Dự án</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-du-an">
-              Các bot Discord
-            </h2>
-            <p class="tieu-de-phan__mo-ta">
-              Một số bot mình đã tham gia xây dựng bằng Python và Java.
-            </p>
-          </div>
-          <div
-            class="bo-loc-du-an hien-khi-cuon"
-            role="group"
-            aria-label="Lọc dự án theo danh mục"
-          >
-            <button
-              class="bo-loc-du-an__nut dang-chon"
-              type="button"
-              data-bo-loc="tat-ca"
-              aria-pressed="true"
-            >
-              Tất cả</button
-            ><button
-              class="bo-loc-du-an__nut"
-              type="button"
-              data-bo-loc="python"
-              aria-pressed="false"
-            >
-              Python</button
-            ><button
-              class="bo-loc-du-an__nut"
-              type="button"
-              data-bo-loc="java"
-              aria-pressed="false"
-            >
-              Java</button
-            ><button
-              class="bo-loc-du-an__nut"
-              type="button"
-              data-bo-loc="discord"
-              aria-pressed="false"
-            >
+      <section class="phan" id="du-an">
+        <div class="khung">
+          <h2>Dự án cá nhân</h2>
+          <p>Một số bot Discord mình đã tham gia xây dựng.</p>
+          <div class="bo-loc" aria-label="Lọc dự án">
+            <button class="nut-loc dang-chon" data-loai="tat-ca" type="button">
+              Tất cả
+            </button>
+            <button class="nut-loc" data-loai="python" type="button">
+              Python
+            </button>
+            <button class="nut-loc" data-loai="java" type="button">Java</button>
+            <button class="nut-loc" data-loai="discord" type="button">
               Discord
             </button>
           </div>
-          <div class="du-an__bo-cuc" id="danh-sach-du-an" aria-live="polite">
-            <article
-              class="the-du-an hien-khi-cuon"
-              data-danh-muc="python discord"
-            >
-              <div class="the-du-an__noi-dung">
-                <div class="the-du-an__thong-tin">
-                  <span>Discord Bot</span><span>01</span>
-                </div>
-                <h3>Bot bán hàng &amp; thanh toán tự động</h3>
-                <p>
-                  Bot Discord hỗ trợ quy trình bán hàng và xử lý thanh toán tự
-                  động trong máy chủ.
-                </p>
-                <ul class="the-du-an__cong-nghe" aria-label="Công nghệ sử dụng">
-                  <li>Python</li>
-                  <li>Discord API</li>
-                  <li>Automation</li>
-                </ul>
-              </div>
+          <div class="ba-cot danh-sach-du-an">
+            <article class="the du-an" data-cong-nghe="python discord">
+              <h3>Bot bán hàng và thanh toán tự động</h3>
+              <p>
+                Hỗ trợ quy trình bán hàng và xử lý thanh toán tự động trên
+                Discord.
+              </p>
+              <p class="the-cong-nghe">Python · Discord</p>
             </article>
-            <article
-              class="the-du-an hien-khi-cuon"
-              data-danh-muc="java discord"
-            >
-              <div class="the-du-an__noi-dung">
-                <div class="the-du-an__thong-tin">
-                  <span>Discord Bot</span><span>02</span>
-                </div>
-                <h3>Bot chống raid server</h3>
-                <p>
-                  Bot bảo vệ máy chủ Discord, hỗ trợ phát hiện và ngăn chặn các
-                  hành vi raid gây gián đoạn cộng đồng.
-                </p>
-                <ul class="the-du-an__cong-nghe" aria-label="Công nghệ sử dụng">
-                  <li>Java</li>
-                  <li>Discord API</li>
-                  <li>Security</li>
-                </ul>
-              </div>
+            <article class="the du-an" data-cong-nghe="java discord">
+              <h3>Bot chống raid server</h3>
+              <p>
+                Hỗ trợ phát hiện và ngăn chặn hành vi raid gây gián đoạn máy
+                chủ.
+              </p>
+              <p class="the-cong-nghe">Java · Discord</p>
             </article>
-            <article
-              class="the-du-an hien-khi-cuon"
-              data-danh-muc="python discord"
-            >
-              <div class="the-du-an__noi-dung">
-                <div class="the-du-an__thong-tin">
-                  <span>Discord Bot</span><span>03</span>
-                </div>
-                <h3>Bot theo dõi hoạt động GTA5VN</h3>
-                <p>
-                  Bot quan sát và theo dõi hoạt động trong game GTA5VN, hỗ trợ
-                  tổng hợp thông tin cho máy chủ Discord.
-                </p>
-                <ul class="the-du-an__cong-nghe" aria-label="Công nghệ sử dụng">
-                  <li>Python</li>
-                  <li>Discord API</li>
-                  <li>Monitoring</li>
-                </ul>
-              </div>
+            <article class="the du-an" data-cong-nghe="python discord">
+              <h3>Bot theo dõi hoạt động GTA5VN</h3>
+              <p>Theo dõi và tổng hợp hoạt động trong game GTA5VN.</p>
+              <p class="the-cong-nghe">Python · Discord</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section
-        class="ngoai-code phan-noi-dung phan-noi-dung--nen-nhat"
-        id="ngoai-code"
-        aria-labelledby="tieu-de-ngoai-code"
-      >
-        <div class="khung-noi-dung">
-          <div class="tieu-de-phan hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">06 / Ngoài code</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-ngoai-code">
-              Chứng chỉ &amp; Sở thích
-            </h2>
+      <section class="phan nen-phu" id="so-thich">
+        <div class="khung hai-cot">
+          <div>
+            <h2>Chứng chỉ</h2>
+            <p>Hiện chưa có chứng chỉ.</p>
           </div>
-          <div class="ngoai-code__bo-cuc">
-            <div class="chung-chi hien-khi-cuon">
-              <h3>Chứng chỉ</h3>
-              <article class="the-chung-chi">
-                <span class="the-chung-chi__nam">—</span>
-                <div>
-                  <h4>Chưa có chứng chỉ</h4>
-                </div>
-              </article>
-            </div>
-            <div class="so-thich hien-khi-cuon">
-              <h3>Sở thích</h3>
-              <ul class="so-thich__danh-sach">
-                <li>
-                  <span aria-hidden="true">⌘</span><strong>Lập trình</strong
-                  ><small>Khám phá công nghệ mới</small>
-                </li>
-                <li>
-                  <span aria-hidden="true">♟</span><strong>Game</strong
-                  ><small>Giải trí và kết nối bạn bè</small>
-                </li>
-                <li>
-                  <span aria-hidden="true">♫</span><strong>Âm nhạc</strong
-                  ><small>Thư giãn mỗi ngày</small>
-                </li>
-                <li>
-                  <span aria-hidden="true">▶</span><strong>Xem phim</strong
-                  ><small>Khám phá những câu chuyện hay</small>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="lien-he phan-noi-dung"
-        id="lien-he"
-        aria-labelledby="tieu-de-lien-he"
-      >
-        <div class="khung-noi-dung">
-          <div class="lien-he__gioi-thieu hien-khi-cuon">
-            <p class="tieu-de-phan__so-thu-tu">07 / Liên hệ</p>
-            <h2 class="tieu-de-phan__tieu-de" id="tieu-de-lien-he">
-              Hãy kết nối với mình.
-            </h2>
-            <p>Bạn có thể liên hệ với mình qua Gmail, Facebook hoặc Discord.</p>
-            <ul class="lien-he__danh-sach" aria-label="Thông tin liên hệ">
-              <li>
-                <a
-                  class="lien-he__lien-ket"
-                  href="mailto:quochuyit.nguyen@gmail.com"
-                  ><span>Gmail</span>quochuyit.nguyen@gmail.com
-                  <b aria-hidden="true">↗</b></a
-                >
-              </li>
-              <li>
-                <a
-                  class="lien-he__lien-ket"
-                  href="https://www.facebook.com/lacky2k6"
-                  target="_blank"
-                  rel="noreferrer"
-                  ><span>Facebook</span>lacky2k6 <b aria-hidden="true">↗</b></a
-                >
-              </li>
-              <li>
-                <a
-                  class="lien-he__lien-ket"
-                  href="https://discord.com/users/1054688789848657920"
-                  target="_blank"
-                  rel="noreferrer"
-                  ><span>Discord</span>Kết nối trên Discord
-                  <b aria-hidden="true">↗</b></a
-                >
-              </li>
+          <div>
+            <h2>Sở thích</h2>
+            <ul>
+              <li>Lập trình</li>
+              <li>Game</li>
+              <li>Âm nhạc</li>
+              <li>Xem phim</li>
             </ul>
           </div>
         </div>
       </section>
+
+      <section class="phan" id="lien-he">
+        <div class="khung">
+          <h2>Liên hệ</h2>
+          <p>Bạn có thể liên hệ với mình qua các kênh sau:</p>
+          <ul class="lien-he">
+            <li>
+              <a href="mailto:quochuyit.nguyen@gmail.com"
+                >Email: quochuyit.nguyen@gmail.com</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/lacky2k6"
+                target="_blank"
+                rel="noreferrer"
+                >Facebook: lacky2k6</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://discord.com/users/1054688789848657920"
+                target="_blank"
+                rel="noreferrer"
+                >Discord</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/Lacky2006"
+                target="_blank"
+                rel="noreferrer"
+                >GitHub: Lacky2006</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
+
     <footer class="chan-trang">
-      <div class="khung-noi-dung chan-trang__noi-dung">
-        <p>
-          <center>
-            © <span id="nam-hien-tai">2026</span> Nguyễn Quốc Huy.
-          </center>
-        </p>
-      </div>
+      <p>© <span id="nam-hien-tai"></span> Nguyễn Quốc Huy.</p>
     </footer>
-    <button
-      class="nut-len-dau"
-      id="nut-len-dau"
-      type="button"
-      aria-label="Cuộn về đầu trang"
-    >
-      ↑
-    </button>
   </body>
 </html>
