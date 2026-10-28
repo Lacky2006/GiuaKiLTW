@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Le Minh Hau</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 100%;
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #4364f7, #6fb1fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .role {
+            font-size: 0.95rem;
+            color: #4364f7;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .info-group {
+            text-align: left;
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .info-value {
+            color: #0f172a;
+            font-weight: 500;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(135deg, #4364f7, #6fb1fc);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(67, 100, 247, 0.3);
+        }
+
+        .back-btn:hover {
+            opacity: 0.95;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="avatar-container">
+            <!-- Điểm tự động load ảnh avatar.jpg trong cùng thư mục LeMinhHau -->
+            <img src="LeMinhHau.jpg" alt="Lê Minh Hậu" class="avatar" onerror="this.src='https://via.placeholder.com/150'">
+        </div>
+
+        <h1>Le Minh Hau</h1>
+        <p class="role">Thành viên 02 - Nhóm 8 Lập Trình Web</p>
+
+        <div class="info-group">
+            <div class="info-item">
+                <span class="info-label">Mã sinh viên:</span>
+                <span class="info-value">066206007587</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Lop:012012103104</span>
+                <span class="info-value">Lap Trinh Web</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Nhiệm vụ:</span>
+                <span class="info-value">Frontend Developer</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span class="info-value">leminhhaukrb16@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Duong dan quay tro lai trang chu index.html o thu muc goc -->
+        <a href="LeMinhHau/index.html" class="back-btn">&larr; Quay lại trang chủ</a>
+    </div>
+
+</body>
+</html>
