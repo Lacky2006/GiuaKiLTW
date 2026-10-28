@@ -34,5 +34,3 @@ cacNutLoc.forEach(function (nut) {
     });
   });
 });
-
-document.getElementById("nam-hien-tai").textContent = new Date().getFullYear();
