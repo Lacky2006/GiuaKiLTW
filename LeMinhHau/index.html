@@ -1,157 +1,582 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Le Minh Hau</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân của Lê Minh Hậu – Full-stack Web Developer. Kỹ năng, dự án, học vấn và thông tin liên hệ.">
+  <meta name="author" content="Lê Minh Hậu">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Lê Minh Hậu | Full-stack Web Developer</title>
+  <link rel="icon" href="LeMinhHau.jpg" type="image/svg+xml">
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+  <!-- Google Fonts: Poppins (tiêu đề) + Inter (nội dung) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 480px;
-            width: 100%;
-            padding: 35px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+  <!-- Devicon: bộ icon logo công nghệ (chỉ là CSS icon, không phải framework) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+  <link rel="stylesheet" href="css/Style.css">
 
-        .avatar-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(135deg, #4364f7, #6fb1fc);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-        }
-
-        .role {
-            font-size: 0.95rem;
-            color: #4364f7;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        .info-group {
-            text-align: left;
-            margin-bottom: 25px;
-            background: #f8fafc;
-            padding: 18px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .info-item {
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: #64748b;
-        }
-
-        .info-value {
-            color: #0f172a;
-            font-weight: 500;
-        }
-
-        .back-btn {
-            display: inline-block;
-            text-decoration: none;
-            background: linear-gradient(135deg, #4364f7, #6fb1fc);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(67, 100, 247, 0.3);
-        }
-
-        .back-btn:hover {
-            opacity: 0.95;
-            transform: scale(1.02);
-        }
-    </style>
+  <!-- Áp dụng theme đã lưu trước khi render để tránh nhấp nháy -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
+  <!-- Thanh tiến trình cuộn trang -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <div class="card">
-        <div class="avatar-container">
-            <!-- Điểm tự động load ảnh avatar.jpg trong cùng thư mục LeMinhHau -->
-            <img src="LeMinhHau.jpg" alt="Lê Minh Hậu" class="avatar" onerror="this.src='https://via.placeholder.com/150'">
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="header" id="header">
+    <nav class="navbar container" aria-label="Điều hướng chính">
+      <a href="#home" class="navbar__logo" aria-label="Về đầu trang">
+        <span class="navbar__logo-mark">&lt;/&gt;</span>
+        <span>Minh<span class="text-accent">Hậu</span></span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="#home" class="navbar__link is-active">Trang chủ</a></li>
+        <li><a href="#about" class="navbar__link">Giới thiệu</a></li>
+        <li><a href="#skills" class="navbar__link">Kỹ năng</a></li>
+        <li><a href="#resume" class="navbar__link">Hành trình</a></li>
+        <li><a href="#projects" class="navbar__link">Dự án</a></li>
+        <li><a href="#extras" class="navbar__link">Chứng chỉ</a></li>
+        <li><a href="#contact" class="navbar__link">Liên hệ</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Chuyển chế độ Sáng/Tối">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="navMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= BANNER / HERO ================= -->
+    <section class="hero" id="home">
+      <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__badge"><span class="hero__dot"></span> Sẵn sàng cho cơ hội thực tập &amp; Fresher</p>
+          <p class="hero__greeting">Xin chào, tôi là</p>
+          <h1 class="hero__name">Lê Minh Hậu</h1>
+          <p class="hero__role">
+            <span class="hero__typing" id="typing"></span><span class="hero__cursor" aria-hidden="true">|</span>
+          </p>
+          <p class="hero__desc">
+            Lập trình viên Web định hướng <strong>Full-stack</strong>, đam mê xây dựng những sản phẩm
+            nhanh, đẹp, dễ dùng – từ giao diện người dùng cho tới API và cơ sở dữ liệu phía sau.
+          </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">Xem dự án
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--outline">Liên hệ với tôi</a>
+          </div>
+          <ul class="hero__socials" aria-label="Mạng xã hội">
+            <li><a href="https://github.com/LeMinhHau-gif" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="devicon-github-original"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/leminhhau" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="devicon-linkedin-plain"></i></a></li>
+            <li><a href="mailto:leminhhaukrb16@gmail.com" class="social-link" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></li>
+          </ul>
         </div>
 
-        <h1>Le Minh Hau</h1>
-        <p class="role">Thành viên 02 - Nhóm 8 Lập Trình Web</p>
+        <div class="hero__visual reveal reveal--right">
+          <div class="hero__avatar-wrap">
+            <img class="hero__avatar"
+                 src="LeMinhHau.jpg"
+                 alt="Ảnh đại diện Lê Minh Hậu" width="600" height="600"
+                 onerror="this.onerror=null;this.src='images/avatar.svg';">
+          </div>
+          <div class="hero__chip hero__chip--1"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+          <div class="hero__chip hero__chip--2"><i class="devicon-react-original colored"></i> React</div>
+          <div class="hero__chip hero__chip--3"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+        </div>
+      </div>
 
-        <div class="info-group">
-            <div class="info-item">
-                <span class="info-label">Mã sinh viên:</span>
-                <span class="info-value">066206007587</span>
+      <a href="#about" class="hero__scroll" aria-label="Cuộn xuống phần Giới thiệu"><span></span></a>
+    </section>
+
+    <!-- ================= GIỚI THIỆU + MỤC TIÊU ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">01. Giới thiệu</p>
+          <h2 class="section__title">Về <span class="text-accent">bản thân</span></h2>
+        </header>
+
+        <div class="about">
+          <aside class="about__card reveal">
+            <img class="about__avatar"
+                 src="LeMinhHau.jpg"
+                 alt="Lê Minh Hậu" width="400" height="400" loading="lazy"
+                 onerror="this.onerror=null;this.src='images/avatar.svg';">
+            <h3 class="about__name">Lê Minh Hậu</h3>
+            <p class="about__major">Full-stack Web Developer</p>
+            <ul class="info-list">
+              <li class="info-list__item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13.5M2 20h20"/><path d="M8 8h8M8 12h5"/></svg>
+                <span><strong>Chuyên ngành:</strong> Công nghệ Thông tin</span>
+              </li>
+              <li class="info-list__item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <a href="mailto:leminhhaukrb16@gmail.com">leminhhaukrb16@gmail.com</a>
+              </li>
+              <li class="info-list__item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                <a href="tel:0397837467">0397 837 467</a>
+              </li>
+              <li class="info-list__item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                <span>Việt Nam</span>
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--block">Tuyển dụng tôi</a>
+          </aside>
+
+          <div class="about__body">
+            <article class="about__intro reveal">
+              <h3 class="about__heading">Xin chào! 👋</h3>
+              <p>
+                Tôi là <strong>Lê Minh Hậu</strong>, sinh viên ngành Công nghệ Thông tin của Trường Đại Học Giao thông Vận Tải TP.Hồ Chí Minh với định hướng trở thành
+                <strong>Full-stack Web Developer</strong>. Tôi yêu thích việc biến ý tưởng thành sản phẩm thực tế:
+                thiết kế giao diện responsive bằng HTML, CSS, JavaScript, React và xây dựng RESTful API với Node.js, Express.
+              </p>
+              <p>
+                Tôi đề cao <em>clean code</em>, tư duy giải quyết vấn đề và khả năng tự học. Mỗi dự án là một cơ hội để tôi
+                rèn luyện kỹ năng, làm việc nhóm qua Git/GitHub và tối ưu trải nghiệm người dùng.
+              </p>
+              <ul class="stats">
+                <li class="stats__item"><span class="stats__num" data-target="10">0</span><span class="stats__label">Dự án đã làm</span></li>
+                <li class="stats__item"><span class="stats__num" data-target="8">0</span><span class="stats__label">Công nghệ sử dụng</span></li>
+                <li class="stats__item"><span class="stats__num" data-target="500">0</span><span class="stats__label">Commit trên GitHub</span></li>
+              </ul>
+            </article>
+
+            <!-- Mục tiêu nghề nghiệp -->
+            <div class="goals">
+              <article class="goal-card reveal">
+                <div class="goal-card__icon" aria-hidden="true">🎯</div>
+                <p class="goal-card__term">Ngắn hạn · 1 – 2 năm</p>
+                <h3 class="goal-card__title">Làm chủ Frontend &amp; Backend</h3>
+                <ul class="goal-card__list">
+                  <li>Thành thạo HTML5, CSS3, JavaScript ES6+ và React.</li>
+                  <li>Xây dựng RESTful API với Node.js/Express, làm việc với MySQL &amp; MongoDB.</li>
+                  <li>Thực tập / làm Fresher tại môi trường chuyên nghiệp, áp dụng Agile/Scrum.</li>
+                </ul>
+              </article>
+              <article class="goal-card reveal">
+                <div class="goal-card__icon" aria-hidden="true">🚀</div>
+                <p class="goal-card__term">Dài hạn · 3 – 5 năm</p>
+                <h3 class="goal-card__title">Senior Full-stack Developer / Team Lead</h3>
+                <ul class="goal-card__list">
+                  <li>Thiết kế kiến trúc hệ thống có khả năng mở rộng, bảo mật, hiệu năng cao.</li>
+                  <li>Làm chủ DevOps cơ bản: Docker, CI/CD, triển khai Cloud.</li>
+                  <li>Dẫn dắt team, review code và hỗ trợ đồng đội cùng phát triển.</li>
+                </ul>
+              </article>
             </div>
-            <div class="info-item">
-                <span class="info-label">Lop:012012103104</span>
-                <span class="info-value">Lap Trinh Web</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Nhiệm vụ:</span>
-                <span class="info-value">Frontend Developer</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Email:</span>
-                <span class="info-value">leminhhaukrb16@gmail.com</span>
-            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KỸ NĂNG ================= -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">02. Kỹ năng</p>
+          <h2 class="section__title">Kỹ năng <span class="text-accent">chuyên môn</span></h2>
+          <p class="section__subtitle">Các công nghệ tôi đã và đang sử dụng trong học tập và dự án thực tế.</p>
+        </header>
+
+        <div class="skills">
+          <article class="skill-group reveal">
+            <h3 class="skill-group__title"><span aria-hidden="true">🎨</span> Frontend</h3>
+            <ul class="skill-list">
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-html5-plain colored"></i> HTML5</span><span class="skill__pct">90%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="HTML5" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="90"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-css3-plain colored"></i> CSS3</span><span class="skill__pct">85%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="CSS3" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="85"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-javascript-plain colored"></i> JavaScript</span><span class="skill__pct">80%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="JavaScript" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="80"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-react-original colored"></i> React</span><span class="skill__pct">70%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="React" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="70"></span></div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-group reveal">
+            <h3 class="skill-group__title"><span aria-hidden="true">⚙️</span> Backend &amp; Ngôn ngữ</h3>
+            <ul class="skill-list">
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-nodejs-plain colored"></i> Node.js / Express</span><span class="skill__pct">72%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="Node.js" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="72"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-python-plain colored"></i> Python</span><span class="skill__pct">70%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="Python" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="70"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-java-plain colored"></i> Java</span><span class="skill__pct">68%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="Java" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="68"></span></div>
+              </li>
+              <li class="skill">
+                <div class="skill__head"><span class="skill__name"><i class="devicon-mysql-plain colored"></i> MySQL / MongoDB</span><span class="skill__pct">70%</span></div>
+                <div class="skill__bar" role="progressbar" aria-label="MySQL và MongoDB" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="skill__fill" data-level="70"></span></div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-group reveal">
+            <h3 class="skill-group__title"><span aria-hidden="true">🛠️</span> Công cụ &amp; Kỹ năng mềm</h3>
+            <ul class="tool-grid">
+              <li class="tool"><i class="devicon-git-plain colored"></i><span>Git</span></li>
+              <li class="tool"><i class="devicon-github-original"></i><span>GitHub</span></li>
+              <li class="tool"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></li>
+              <li class="tool"><i class="devicon-figma-plain colored"></i><span>Figma</span></li>
+              <li class="tool"><i class="devicon-postman-plain colored"></i><span>Postman</span></li>
+              <li class="tool"><i class="devicon-npm-original-wordmark colored"></i><span>npm</span></li>
+            </ul>
+            <ul class="tag-list tag-list--soft">
+              <li class="tag">Làm việc nhóm</li>
+              <li class="tag">Giải quyết vấn đề</li>
+              <li class="tag">Tự học</li>
+              <li class="tag">Quản lý thời gian</li>
+              <li class="tag">Đọc tài liệu tiếng Anh</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HỌC VẤN / KINH NGHIỆM / HOẠT ĐỘNG ================= -->
+    <section class="section" id="resume">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">03. Hành trình</p>
+          <h2 class="section__title">Học vấn &amp; <span class="text-accent">Kinh nghiệm</span></h2>
+        </header>
+
+        <div class="resume">
+          <div class="resume__col">
+            <h3 class="resume__heading"><span aria-hidden="true">🎓</span> Học vấn</h3>
+            <ol class="timeline">
+              <li class="timeline__item reveal">
+                <span class="timeline__date">2023 – Hiện tại</span>
+                <h4 class="timeline__title">Tự học, tìm tòi các ngành về Công nghệ Thông tin</h4>
+                <!-- TODO: thay bằng tên trường thực tế của bạn -->
+                <p class="timeline__place">Hệ Đại học chính quy</p>
+                <p>Chuyên sâu Kỹ thuật Phần mềm. Các môn tiêu biểu: Lập trình Web, Cấu trúc dữ liệu &amp; Giải thuật, Cơ sở dữ liệu, Lập trình hướng đối tượng (Java).</p>
+              </li>
+              <li class="timeline__item reveal">
+                <span class="timeline__date">2024 – Hiện tại</span>
+                <h4 class="timeline__title">Tự học Full-stack Web</h4>
+                <p class="timeline__place">freeCodeCamp · MDN · Coursera</p>
+                <p>Hoàn thành lộ trình Responsive Web Design, JavaScript, React và Back-end với Node.js – Express.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="resume__col">
+            <h3 class="resume__heading"><span aria-hidden="true">💼</span> Kinh nghiệm &amp; Hoạt động</h3>
+            <ol class="timeline">
+              <li class="timeline__item reveal">
+                <span class="timeline__date">06/2025 – 09/2025</span>
+                <h4 class="timeline__title">Thực tập sinh Web Developer</h4>
+                <p class="timeline__place">Dự án thực tập doanh nghiệp</p>
+                <p>Xây dựng giao diện quản trị bằng React, tích hợp REST API, viết component tái sử dụng và làm việc theo quy trình Scrum.</p>
+              </li>
+              <li class="timeline__item reveal">
+                <span class="timeline__date">2023 – Hiện tại</span>
+                <h4 class="timeline__title">Thành viên CLB Lập trình</h4>
+                <p class="timeline__place">Hoạt động ngoại khóa</p>
+                <p>Tổ chức workshop HTML/CSS cho tân sinh viên, tham gia các cuộc thi lập trình và Hackathon cấp trường.</p>
+              </li>
+              <li class="timeline__item reveal">
+                <span class="timeline__date">2024</span>
+                <h4 class="timeline__title">Thành tích nổi bật</h4>
+                <p class="timeline__place">Học tập &amp; thi đua</p>
+                <p>Top 10 Hackathon sinh viên cấp trường; đạt học bổng khuyến khích học tập.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DỰ ÁN CÁ NHÂN ================= -->
+    <section class="section section--alt" id="projects">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">04. Dự án</p>
+          <h2 class="section__title">Dự án <span class="text-accent">cá nhân</span></h2>
+          <p class="section__subtitle">Nhấn vào một dự án để xem chi tiết tính năng và công nghệ.</p>
+        </header>
+
+        <div class="filter reveal" role="tablist" aria-label="Lọc dự án">
+          <button class="filter__btn is-active" type="button" role="tab" aria-selected="true" data-filter="all">Tất cả</button>
+          <button class="filter__btn" type="button" role="tab" aria-selected="false" data-filter="frontend">Frontend</button>
+          <button class="filter__btn" type="button" role="tab" aria-selected="false" data-filter="fullstack">Fullstack</button>
         </div>
 
-        <!-- Duong dan quay tro lai trang chu index.html o thu muc goc -->
-        <a href="LeMinhHau/index.html" class="back-btn">&larr; Quay lại trang chủ</a>
+        <div class="projects" id="projectGrid">
+          <article class="project-card reveal" data-category="fullstack" data-project="shop" tabindex="0">
+            <div class="project-card__media">
+              <img src="ảnhAppCaro.png" alt="Ảnh demo Game – AppCaro" loading="lazy">
+              <span class="project-card__badge">Fullstack</span>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Game – AppCaro</h3>
+              <p class="project-card__desc">Trò chơi Caro (Oẳn tù tì) được phát triển bằng JavaScript, và được tôi phát triển để cho mọi lứa tuổi chơi với mục đích giảm stress, tăng khả năng tư duy và ghi nhớ tốt.</p>
+              <ul class="tag-list">
+                <li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">MongoDB</li><li class="tag">JavaScript</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/LeMinhHau-gif/appcaro" target="_blank" rel="noopener" class="btn btn--sm btn--primary">Live Demo</a>
+                <a href="https://github.com/LeMinhHau-gif/appcaro" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="frontend" data-project="task" tabindex="0">
+            <div class="project-card__media">
+              <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=70" alt="Ảnh demo TaskFlow – ứng dụng quản lý công việc" loading="lazy">
+              <span class="project-card__badge">Frontend</span>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">TaskFlow – Quản lý công việc</h3>
+              <p class="project-card__desc">Ứng dụng Kanban kéo-thả, lọc theo trạng thái, lưu dữ liệu localStorage, hỗ trợ Dark Mode.</p>
+              <ul class="tag-list">
+                <li class="tag">HTML5</li><li class="tag">CSS3</li><li class="tag">JavaScript</li><li class="tag">Drag &amp; Drop</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/LeMinhHau-gif/taskflow" target="_blank" rel="noopener" class="btn btn--sm btn--primary">Live Demo</a>
+                <a href="https://github.com/LeMinhHau-gif/taskflow" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="frontend" data-project="weather" tabindex="0">
+            <div class="project-card__media">
+              <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=70" alt="Ảnh demo SkyCast – ứng dụng dự báo thời tiết" loading="lazy">
+              <span class="project-card__badge">Frontend</span>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">SkyCast – Dự báo thời tiết</h3>
+              <p class="project-card__desc">Tra cứu thời tiết theo thành phố hoặc vị trí hiện tại, dự báo 5 ngày, gọi API bằng Fetch/Async-Await.</p>
+              <ul class="tag-list">
+                <li class="tag">React</li><li class="tag">REST API</li><li class="tag">CSS Grid</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://leminhhau.github.io/skycast" target="_blank" rel="noopener" class="btn btn--sm btn--primary">Live Demo</a>
+                <a href="https://github.com/leminhhau/skycast" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="fullstack" data-project="library" tabindex="0">
+            <div class="project-card__media">
+              <img src="English.jpg" alt="Ảnh demo language – App học tiếng Anh cho người Việt Ở Mỹ" loading="lazy">
+              <span class="project-card__badge">Fullstack</span>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">language – App học tiếng Anh cho người Việt Ở Mỹ</h3>
+              <p class="project-card__desc">Ứng dụng học tiếng Anh với các tính năng như học từ vựng, luyện nghe, luyện nói và kiểm tra kiến thức.</p>
+              <ul class="tag-list">
+                <li class="tag">Java</li><li class="tag">Spring Boot</li><li class="tag">MySQL</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/LeMinhHau-gif/appenglish4nail" target="_blank" rel="noopener" class="btn btn--sm btn--primary">Live Demo</a>
+                <a href="https://github.com/LeMinhHau-gif/appenglish4nail" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CHỨNG CHỈ / GIẢI THƯỞNG / SỞ THÍCH ================= -->
+    <section class="section" id="extras">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">05. Thành tựu</p>
+          <h2 class="section__title">Chứng chỉ, Giải thưởng &amp; <span class="text-accent">Sở thích</span></h2>
+        </header>
+
+        <div class="extras">
+          <article class="extra-card reveal">
+            <h3 class="extra-card__title"><span aria-hidden="true">📜</span> Chứng chỉ</h3>
+            <ul class="cert-list">
+              <li class="cert">
+                <div><strong>Responsive Web Design</strong><span>freeCodeCamp</span></div>
+                <span class="status status--done">Đã đạt</span>
+              </li>
+              <li class="cert">
+                <div><strong>JavaScript Algorithms &amp; Data Structures</strong><span>freeCodeCamp</span></div>
+                <span class="status status--done">Đã đạt</span>
+              </li>
+              <li class="cert">
+                <div><strong>Python for Everybody</strong><span>Coursera</span></div>
+                <span class="status status--progress">Đang học</span>
+              </li>
+              <li class="cert">
+                <div><strong>TOEIC 650+</strong><span>IIG Việt Nam</span></div>
+                <span class="status status--plan">Mục tiêu 2026</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="extra-card reveal">
+            <h3 class="extra-card__title"><span aria-hidden="true">🏆</span> Giải thưởng</h3>
+            <ul class="award-list">
+              <li class="award"><span class="award__year">2024</span> Top 10 Hackathon sinh viên cấp trường</li>
+              <li class="award"><span class="award__year">2024</span> Học bổng khuyến khích học tập</li>
+              <li class="award"><span class="award__year">2023</span> Tham gia cuộc thi Thiết kế Web cấp khoa</li>
+            </ul>
+          </article>
+
+          <article class="extra-card reveal">
+            <h3 class="extra-card__title"><span aria-hidden="true">💡</span> Sở thích</h3>
+            <ul class="hobby-grid">
+              <li class="hobby"><span aria-hidden="true">🧩</span>Giải thuật</li>
+              <li class="hobby"><span aria-hidden="true">♟️</span>Cờ vua</li>
+              <li class="hobby"><span aria-hidden="true">📚</span>Đọc sách công nghệ</li>
+              <li class="hobby"><span aria-hidden="true">🌐</span>Open Source</li>
+              <li class="hobby"><span aria-hidden="true">🤖</span>Tìm hiểu AI</li>
+              <li class="hobby"><span aria-hidden="true">🎨</span>Thiết kế UI</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIÊN HỆ ================= -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="section__eyebrow">06. Liên hệ</p>
+          <h2 class="section__title">Hãy cùng <span class="text-accent">kết nối</span></h2>
+          <p class="section__subtitle">Bạn có cơ hội thực tập, dự án hoặc chỉ muốn chào hỏi? Đừng ngần ngại nhắn cho tôi!</p>
+        </header>
+
+        <div class="contact">
+          <aside class="contact__info reveal">
+            <a class="contact-item" href="mailto:leminhhaukrb16@gmail.com">
+              <span class="contact-item__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span><small>Email</small>leminhhaukrb16@gmail.com</span>
+            </a>
+            <a class="contact-item" href="tel:0397837467">
+              <span class="contact-item__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+              <span><small>Điện thoại</small>0397 837 467</span>
+            </a>
+            <a class="contact-item" href="https://github.com/LeMinhHau-gif" target="_blank" rel="noopener">
+              <span class="contact-item__icon"><i class="devicon-github-original"></i></span>
+              <span><small>GitHub</small>github.com/LeMinhHau-gif</span>
+            </a>
+          </aside>
+
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Họ và tên <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" autocomplete="name">
+                <small class="form-group__error" aria-live="polite"></small>
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="ban@example.com" autocomplete="email">
+                <small class="form-group__error" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0912 345 678" autocomplete="tel">
+              <small class="form-group__error" aria-live="polite"></small>
+            </div>
+            <div class="form-group">
+              <label for="message">Lời nhắn <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Nội dung bạn muốn gửi (tối thiểu 10 ký tự)..."></textarea>
+              <small class="form-group__error" aria-live="polite"></small>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block" id="submitBtn">
+              <span class="btn__text">Gửi lời nhắn</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year">2026</span> <strong>Lê Minh Hậu</strong>. Thiết kế &amp; lập trình bằng HTML5, CSS3, JavaScript.</p>
+      <ul class="footer__links">
+        <li><a href="mailto:leminhhaukrb16@gmail.com">Email</a></li>
+        <li><a href="tel:0397837467">0397 837 467</a></li>
+        <li><a href="https://github.com/LeMinhHau-gif" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
     </div>
+  </footer>
 
+  <!-- Nút lên đầu trang -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <!-- Modal chi tiết dự án -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog">
+      <button class="modal__close" type="button" aria-label="Đóng" data-close>&times;</button>
+      <img class="modal__img" id="modalImg" src="" alt="">
+      <div class="modal__body">
+        <span class="project-card__badge modal__badge" id="modalBadge"></span>
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <p class="modal__desc" id="modalDesc"></p>
+        <h4 class="modal__subtitle">Tính năng chính</h4>
+        <ul class="modal__features" id="modalFeatures"></ul>
+        <h4 class="modal__subtitle">Công nghệ sử dụng</h4>
+        <ul class="tag-list" id="modalTags"></ul>
+        <div class="project-card__links">
+          <a href="#" target="_blank" rel="noopener" class="btn btn--primary" id="modalDemo">Live Demo</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn--outline" id="modalRepo">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vùng hiển thị Toast -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
