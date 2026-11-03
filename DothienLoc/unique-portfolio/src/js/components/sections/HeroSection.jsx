@@ -47,7 +47,7 @@ function HeroSection() {
         <figure className={`portrait${portraitMissing ? ' portrait--fallback' : ''}`} data-hero-reveal>
           {!portraitMissing && (
             <img
-              src="/images/portrait.jpg"
+              src={`${import.meta.env.BASE_URL}images/portrait.jpg`}
               alt="Đỗ Thiên Lộc trong đồng phục hướng đạo sinh"
               width="1706"
               height="2560"
