@@ -287,6 +287,40 @@
         transform: translateX(5px);
       }
 
+      .the-thanh-vien__danh-sach-portfolio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .the-thanh-vien__portfolio {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+        border: 1px solid var(--mau-vien);
+        border-radius: 999px;
+        background: var(--mau-be-mat);
+        color: var(--mau-chinh);
+        font-size: 0.84rem;
+        font-weight: 800;
+        transition:
+          border-color var(--chuyen-dong),
+          background-color var(--chuyen-dong),
+          transform var(--chuyen-dong);
+      }
+
+      .the-thanh-vien__portfolio:hover,
+      .the-thanh-vien__portfolio:focus-visible {
+        border-color: var(--mau-chinh);
+        background: var(--mau-nen);
+        outline: none;
+        transform: translateY(-2px);
+      }
+
       .chan-trang {
         padding: 26px 0;
         border-top: 1px solid var(--mau-vien);
@@ -417,21 +451,34 @@
             >
           </a>
 
-          <a
-            class="the-thanh-vien"
-            href="DoThienPhuc/index.html"
-            aria-label="Xem profile thành viên 4"
-          >
-            <div class="anh-thanh-vien">
-              <img src="DoThienPhuc/person-cutout.png" alt="Ảnh thành viên 4" />
+          <article class="the-thanh-vien">
+            <div
+              class="anh-thanh-vien"
+              style="background: linear-gradient(135deg, #555b66, #17191f)"
+            >
+              <img
+                src="DoThienPhuc/Portfolio 1/images/do-thien-phuc.png"
+                alt="Ảnh Đỗ Thiên Phúc"
+              />
               <span>04</span>
             </div>
             <h2>Đỗ Thiên Phúc</h2>
             <p>Thành viên</p>
-            <span class="the-thanh-vien__xem"
-              >Xem portfolio <span aria-hidden="true">→</span></span
-            >
-          </a>
+            <div class="the-thanh-vien__danh-sach-portfolio">
+              <a
+                class="the-thanh-vien__portfolio"
+                href="DoThienPhuc/Portfolio%201/index.html"
+                aria-label="Xem Portfolio 1 của Đỗ Thiên Phúc"
+                >Portfolio 1 · Basic</a
+              >
+              <a
+                class="the-thanh-vien__portfolio"
+                href="DoThienPhuc/Portfolio%202/index.html"
+                aria-label="Xem Portfolio 2 của Đỗ Thiên Phúc"
+                >Portfolio 2 · Preprared</a
+              >
+            </div>
+          </article>
 
           <a
             class="the-thanh-vien"

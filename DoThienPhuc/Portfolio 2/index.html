@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio của Đỗ Thiên Phúc, sinh viên năm 3 UTH, định hướng An ninh mạng.">
+<title>Đỗ Thiên Phúc | Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<video id="bgVideo" playsinline loop preload="auto" aria-hidden="true"></video>
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#home">Portfolio</a>
+    <nav id="nav" aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#goal">Mục tiêu</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#extra">Chứng chỉ &amp; Sở thích</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện sáng/tối">◐</button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Mở menu">☰</button>
+  </div>
+</header>
+
+<main id="main">
+  <section id="home" class="hero wrap">
+    <div class="hero-text">
+      <h1>Đỗ Thiên Phúc<span class="caret" aria-hidden="true">_</span></h1>
+      <p class="lede">Sinh viên năm 3 UTH. Mình học lập trình và đang đi theo hướng <span data-cipher>An ninh mạng</span>.</p>
+      <div class="actions">
+        <a class="btn" href="#projects">Xem dự án</a>
+        <a class="btn ghost" href="#contact">Liên hệ</a>
+      </div>
+    </div>
+    <figure class="screen">
+      <figcaption id="portraitHint">Nhấn vào ảnh để giải mã</figcaption>
+      <div class="stage">
+        <img id="bin" src="images/phuc.jpg" alt="Ảnh chân dung Đỗ Thiên Phúc, áo vest đen trên nền đỏ" width="600" height="800">
+        <button type="button" class="cover-btn" id="coverBtn" aria-label="Nhấn để giải mã ảnh chân dung"><canvas id="cover" aria-hidden="true"></canvas></button>
+      </div>
+    </figure>
+  </section>
+
+  <section id="about" class="wrap">
+    <h2 data-cipher>Giới thiệu bản thân</h2>
+    <div class="two">
+      <p>Xin chào, mình là Đỗ Thiên Phúc, sinh viên năm 3 Trường Đại học Giao thông Vận tải TP.HCM (UTH). Mình tò mò về cách hệ thống vận hành, và cũng về cách chúng bị tấn công rồi được bảo vệ. Ngoài giờ học, mình luyện kỹ năng qua các dự án có tính thực hành và chơi game để thư giãn.</p>
+      <dl class="facts">
+        <div><dt data-cipher>Họ và tên</dt><dd>Đỗ Thiên Phúc</dd></div>
+        <div><dt data-cipher>Trường</dt><dd>Đại học Giao thông Vận tải TP.HCM (UTH)</dd></div>
+        <div><dt data-cipher>Năm học</dt><dd>Sinh viên năm 3</dd></div>
+        <div><dt data-cipher>Định hướng</dt><dd>An ninh mạng (Cybersecurity)</dd></div>
+      </dl>
+    </div>
+    <h3 class="sub">Học vấn, kinh nghiệm và hoạt động</h3>
+    <ol class="timeline">
+      <li><strong>Sinh viên năm 3, UTH</strong><span>Đang theo học, tập trung lập trình và nền tảng cho An ninh mạng.</span></li>
+      <li><strong>Dự án Trie Keyword Suggestion</strong><span>Xây dựng hệ thống gợi ý từ khóa bằng Python.</span></li>
+      <li><strong>Dự án nhóm Chatties</strong><span>Tham gia phát triển ứng dụng chat theo nhóm.</span></li>
+    </ol>
+  </section>
+
+  <section id="goal" class="wrap">
+    <h2 data-cipher>Mục tiêu nghề nghiệp</h2>
+    <p class="wide">Mình muốn trở thành chuyên viên <span data-cipher>An ninh mạng</span>: người hiểu hệ thống đủ sâu để tìm ra điểm yếu trước khi kẻ tấn công làm điều đó.</p>
+    <div class="grid3">
+      <article class="tile"><h3 data-cipher>Ngắn hạn</h3><p>Chắc nền tảng lập trình, mạng máy tính và hệ điều hành.</p></article>
+      <article class="tile"><h3 data-cipher>Trung hạn</h3><p>Thực hành bảo mật ứng dụng web và phân tích lỗ hổng trong môi trường thử nghiệm.</p></article>
+      <article class="tile"><h3 data-cipher>Dài hạn</h3><p>Làm việc trong lĩnh vực An ninh mạng và tiếp tục học hỏi cùng cộng đồng.</p></article>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <h2 data-cipher>Kỹ năng</h2>
+    <div class="grid4">
+      <article class="tile"><h3 data-cipher>HTML</h3><p>Dựng cấu trúc trang với thẻ ngữ nghĩa.</p></article>
+      <article class="tile"><h3 data-cipher>CSS</h3><p>Bố cục Flexbox/Grid, responsive, hiệu ứng.</p></article>
+      <article class="tile"><h3 data-cipher>JavaScript</h3><p>Thao tác DOM, xử lý sự kiện, kiểm tra form.</p></article>
+      <article class="tile"><h3 data-cipher>Python</h3><p>Viết ứng dụng và xử lý dữ liệu.</p></article>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <h2 data-cipher>Dự án cá nhân</h2>
+    <div class="filters" role="group" aria-label="Lọc dự án">
+      <button type="button" class="chip active" data-filter="all">Tất cả</button>
+      <button type="button" class="chip" data-filter="python">Python</button>
+      <button type="button" class="chip" data-filter="cpp">C++</button>
+      <button type="button" class="chip" data-filter="network">Mạng</button>
+    </div>
+    <div class="cards" id="cards">
+      <article class="card" data-tags="python desktop" data-id="trie">
+        <img src="images/trie.svg" alt="Sơ đồ cây Trie với các nút chữ cái" width="640" height="360" loading="lazy">
+        <div class="body">
+          <h3>Trie Keyword Suggestion</h3>
+          <p>Hệ thống gợi ý từ khóa tìm kiếm theo tiền tố bằng cấu trúc cây Trie.</p>
+          <ul class="tags"><li>Python</li><li>CustomTkinter</li><li>SQLite</li></ul>
+          <div class="row"><button type="button" class="link" data-open="trie">Chi tiết</button><a href="https://github.com/uyen1103/trie-keyword-suggestion" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+      <article class="card" data-tags="cpp network desktop" data-id="chatties">
+        <img src="images/chatties.svg" alt="Các khung tin nhắn của ứng dụng chat" width="640" height="360" loading="lazy">
+        <div class="body">
+          <h3>Chatties</h3>
+          <p>Ứng dụng chat lấy cảm hứng từ Discord, làm theo nhóm.</p>
+          <ul class="tags"><li>C++</li><li>Qt</li><li>Boost.Asio</li><li>TCP</li></ul>
+          <div class="row"><button type="button" class="link" data-open="chatties">Chi tiết</button><a href="https://github.com/Khoi2310/App_Chatties" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="extra" class="wrap">
+    <h2 data-cipher>Chứng chỉ, giải thưởng và sở thích</h2>
+    <div class="grid3">
+      <article class="tile"><h3 data-cipher>Chứng chỉ</h3><p>Chưa có</p></article>
+      <article class="tile"><h3 data-cipher>Giải thưởng</h3><p>Chưa có</p></article>
+      <article class="tile"><h3 data-cipher>Sở thích</h3><p>Chơi game, tìm hiểu An ninh mạng.</p></article>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <h2 data-cipher>Liên hệ</h2>
+    <form id="contactForm" novalidate>
+      <div class="field"><label for="name">Họ và tên</label><input id="name" name="name" autocomplete="name"><span class="err" data-for="name"></span></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><span class="err" data-for="email"></span></div>
+      <div class="field"><label for="message">Nội dung</label><textarea id="message" name="message" rows="5"></textarea><span class="err" data-for="message"></span></div>
+      <button class="btn" type="submit">Gửi tin nhắn</button>
+      <p id="formStatus" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Đỗ Thiên Phúc, sinh viên UTH</span>
+  <a href="#home">Lên đầu trang</a>
+</footer>
+
+<div class="dock min" role="group" aria-label="Điều khiển video nền">
+  <button type="button" id="vPlay" aria-label="Tạm dừng video">❚❚</button>
+  <button type="button" id="vBack" aria-label="Tua lùi 10 giây">« 10s</button>
+  <button type="button" id="vFwd" aria-label="Tua nhanh 10 giây">10s »</button>
+  <input id="vSeek" type="range" min="0" max="206" step="0.1" value="0" aria-label="Thanh thời gian video">
+  <span id="vTime">0:00 / 0:00</span>
+  <button type="button" id="vMute" aria-label="Bật hoặc tắt tiếng">🔊</button>
+  <input id="vVol" type="range" min="0" max="100" step="1" value="1" aria-label="Âm lượng, từ 0 đến 100 phần trăm">
+  <output id="vVolOut" for="vVol">1%</output>
+  <button type="button" id="vColor" aria-label="Đổi kiểu màu của nền ASCII">Màu: cầu vồng</button>
+  <button type="button" id="dockToggle" aria-expanded="false" aria-label="Mở rộng thanh điều khiển">▴</button>
+</div>
+
+<dialog id="modal" aria-labelledby="mTitle">
+  <button type="button" class="icon-btn x" id="mClose" aria-label="Đóng">×</button>
+  <h3 id="mTitle"></h3>
+  <p id="mDesc"></p>
+  <h4>Tính năng chính</h4>
+  <ul id="mFeat"></ul>
+  <p id="mTech" class="dim"></p>
+  <a class="btn" id="mLink" target="_blank" rel="noopener">Xem trên GitHub</a>
+</dialog>
+
+<script src="js/video-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
