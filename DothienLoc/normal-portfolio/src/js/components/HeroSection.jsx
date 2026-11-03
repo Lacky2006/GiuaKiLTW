@@ -32,7 +32,7 @@ function HeroSection() {
         </div>
       </div>
       <figure className="hero__portrait" data-hero-reveal>
-        <img src="/images/portrait.jpg" alt="Đỗ Thiên Lộc trong đồng phục hướng đạo sinh" width="1706" height="2560" fetchPriority="high" />
+        <img src={`${import.meta.env.BASE_URL}images/portrait.jpg`} alt="Đỗ Thiên Lộc trong đồng phục hướng đạo sinh" width="1706" height="2560" fetchPriority="high" />
         <figcaption>Đỗ Thiên Lộc <span>·</span> Game Developer</figcaption>
       </figure>
       <a className="hero__scroll" href="#about"><ArrowDown size={15} aria-hidden="true" /> Cuộn để xem portfolio</a>
