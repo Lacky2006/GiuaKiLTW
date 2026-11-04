@@ -1,121 +1,213 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoàng Vĩnh Phúc | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 600px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .avatar {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #007bff;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            margin: 5px 0;
-            color: #007bff;
-            font-size: 24px;
-        }
-
-        .subtitle {
-            color: #6c757d;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .section {
-            text-align: left;
-            background-color: #f8f9fa;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 4px solid #007bff;
-        }
-
-        .section h2 {
-            font-size: 18px;
-            margin-top: 0;
-            color: #333;
-        }
-
-        ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .contact-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân của Hoàng Vĩnh Phúc - Sinh viên Công nghệ thông tin.">
+  <title>Hoàng Vĩnh Phúc | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
-    <div class="container">
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Điều hướng chính">
+      <a class="brand" href="#home" aria-label="Hoang Phúc - Trang chủ">H<span>·</span>P</a>
 
-        <img src="vinhphuc.jpg" alt="Hoàng Vĩnh Phúc" class="avatar">
-        
-        <h1>Hoàng Vĩnh Phúc</h1>
-        <p class="subtitle">Sinh viên CNTT / Lập trình viên Web</p>
+      <button class="menu-toggle icon-button" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
 
-        <div class="section">
-            <h2>Giới thiệu</h2>
-            <p>Hello! Mình là Phúc, có đam mê lập trình web và học hỏi các công nghệ.</p>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link active" href="#home">Trang chủ</a>
+        <a class="nav-link" href="#about">Giới thiệu</a>
+        <a class="nav-link" href="#skills">Kỹ năng</a>
+        <a class="nav-link" href="#projects">Dự án</a>
+        <a class="nav-link" href="#contact">Liên hệ</a>
+        <button class="theme-toggle icon-button" type="button" aria-label="Chuyển giao diện sáng tối" title="Chuyển giao diện">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow"><span class="status-dot"></span> SINH VIÊN CÔNG NGHỆ THÔNG TIN</p>
+          <h1>Xin chào, mình là <span class="gradient-text">Hoàng Vĩnh Phúc</span></h1>
+          <p class="hero-lead">Mình yêu thích công nghệ, lập trình và hành trình biến những ý tưởng thành sản phẩm thực tế.</p>
+          <p class="hero-note">Hiện tại mình đang học tập, thực hành và từng bước xây dựng nền tảng để trở thành một lập trình viên.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Khám phá dự án <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#contact">Liên hệ với mình</a>
+          </div>
+          <div class="hero-socials" aria-label="Thông tin nhanh">
+            <span>📍 TP. Hồ Chí Minh</span>
+            <span>✦ Luôn học hỏi</span>
+          </div>
         </div>
 
-        <div class="section">
-            <h2>Kỹ năng</h2>
-            <ul>
-                <li>HTML5 / CSS3 / JavaScript</li>
-                <li>Lập trình Web responsive</li>
-                <li>Sử dụng Git & GitHub</li>
-            </ul>
+        <div class="hero-visual reveal" aria-label="Hình minh họa chữ viết tắt HP">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="profile-card">
+            <div class="profile-card-top"><span></span><span></span><span></span><small>MY PROFILE</small></div>
+            <div class="profile-avatar">
+    <img src="images/avatar.png"
+         alt="Ảnh đại diện Hoang Phúc">
+</div>
+            <p class="profile-name">Vĩnh Phúc</p>
+            <p class="profile-role">Information Technology Student</p>
+            <div class="profile-tags"><span>Creative</span><span>Curious</span><span>Developer</span></div>
+            <div class="profile-code"><span>const</span> goal = <b>"Keep learning"</b>;</div>
+          </div>
+          <div class="floating-chip chip-code">&lt;/&gt; Code</div>
+          <div class="floating-chip chip-star">✦ Keep growing</div>
         </div>
+      </div>
+      <a class="scroll-hint" href="#about"><span></span> Cuộn để khám phá</a>
+    </section>
 
-        <div class="section">
-            <h2>Thông tin liên hệ</h2>
-            <p><strong>Email:</strong> phuc062006@gmail.com</p>
-            <p><strong>Số điện thoại:</strong> 0912492478</p>
+    <!-- ABOUT -->
+    <section class="section section-soft" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 / ABOUT ME</p>
+          <h2>Một chút về <span class="gradient-text">mình</span></h2>
+          <p>Thông tin cơ bản và định hướng hiện tại của mình.</p>
         </div>
-        <a href="https://www.facebook.com/vinhphuc1607" target="_blank" class="contact-btn">Ghé thăm Facebook của mình</a>
+        <div class="about-grid">
+          <article class="about-panel reveal">
+            <div class="about-icon">✳</div>
+            <h3>Mình là ai?</h3>
+            <p>Mình là Phúc, sinh viên ngành Công nghệ thông tin. Mình đang từng bước tìm hiểu cách xây dựng website, ứng dụng và các sản phẩm phần mềm.</p>
+            <p>Trong quá trình học, mình thích được tự tay thực hành, thử nghiệm, tìm lỗi và cải thiện sản phẩm qua từng phiên bản.</p>
+          </article>
+          <article class="about-panel goal-panel reveal">
+            <div class="about-icon">⌁</div>
+            <h3>Mục tiêu nghề nghiệp</h3>
+            <p>Trước mắt, mình muốn củng cố kiến thức nền tảng về lập trình, cấu trúc dữ liệu, cơ sở dữ liệu và phát triển ứng dụng.</p>
+            <p>Trong tương lai, mình hướng đến công việc lập trình viên phần mềm, có khả năng tham gia xây dựng những sản phẩm hữu ích và dễ sử dụng.</p>
+            <div class="goal-line"><span></span><small>Learn · Practice · Improve</small></div>
+          </article>
+        </div>
+        <div class="info-strip reveal">
+          <div><span class="info-label">HỌ VÀ TÊN</span><strong>Hoàng Vĩnh Phúc</strong></div>
+          <div><span class="info-label">CHUYÊN NGÀNH</span><strong>Công nghệ thông tin</strong></div>
+          <div><span class="info-label">TRƯỜNG</span><strong>Đại học Giao thông vận tải TP.HCM</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / MY SKILLS</p>
+          <h2>Kỹ năng mình đang <span class="gradient-text">phát triển</span></h2>
+          <p>Các công nghệ mình đã hoặc đang tìm hiểu trong quá trình học tập.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><div class="skill-top"><span class="skill-symbol html-symbol">5</span><span class="skill-level">Cơ bản</span></div><h3>HTML</h3><p>Xây dựng cấu trúc và nội dung trang web.</p><div class="skill-track"><span style="--level: 65%"></span></div></article>
+          <article class="skill-card reveal"><div class="skill-top"><span class="skill-symbol css-symbol">CSS</span><span class="skill-level">Cơ bản</span></div><h3>CSS</h3><p>Thiết kế bố cục, màu sắc và responsive.</p><div class="skill-track"><span style="--level: 55%"></span></div></article>
+          <article class="skill-card reveal"><div class="skill-top"><span class="skill-symbol js-symbol">JS</span><span class="skill-level">Đang học</span></div><h3>JavaScript</h3><p>Tạo chức năng và tương tác cho website.</p><div class="skill-track"><span style="--level: 35%"></span></div></article>
+          <article class="skill-card reveal"><div class="skill-top"><span class="skill-symbol cs-symbol">C#</span><span class="skill-level">Đang học</span></div><h3>C#</h3><p>Thực hành lập trình ứng dụng desktop.</p><div class="skill-track"><span style="--level: 45%"></span></div></article>
+        </div>
+       
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-soft" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 / SELECTED WORK</p>
+          <h2>Một số <span class="gradient-text">dự án</span></h2>
+          <p>Những sản phẩm mình đã tham gia hoặc đang xây dựng trong quá trình học tập.</p>
+        </div>
+        <div class="project-filters reveal" role="group" aria-label="Lọc dự án">
+          <button class="filter-button active" type="button" data-filter="all">Tất cả</button>
+          <button class="filter-button" type="button" data-filter="application">Ứng dụng</button>
+          <button class="filter-button" type="button" data-filter="web">Website</button>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="application">
+            <div class="project-art chat-art">
+              <div class="mini-window"><div class="mini-window-bar"><i></i><i></i><i></i><span>Chat Application</span></div><div class="chat-preview"><div class="chat-side"><b>ROOMS</b><span># general</span><span># team-work</span></div><div class="chat-main"><div class="chat-bubble left-bubble">Hello team!</div><div class="chat-bubble right-bubble">Hi, welcome 👋</div><div class="chat-bubble left-bubble short-bubble">Ready to work?</div></div></div></div>
+              <span class="art-label">C# · TCP · JSON</span>
+            </div>
+            <div class="project-body"><div class="project-meta"><span>ỨNG DỤNG DESKTOP</span><span>01</span></div><h3>Ứng dụng Chat TCP</h3><p>Ứng dụng nhắn tin giữa máy chủ và máy khách, hỗ trợ trao đổi tin nhắn theo phòng chat. Dự án sử dụng C# WinForms, TCP và JSON.</p><div class="tag-list"><span>C#</span><span>WinForms</span><span>TCP</span><span>JSON</span></div><button class="text-button project-detail" type="button" data-project="chat">Xem chi tiết <span>↗</span></button></div>
+          </article>
+          <article class="project-card reveal" data-category="web">
+            <div class="project-art portfolio-art">
+              <div class="browser-preview"><div class="browser-bar"><i></i><i></i><i></i><span>vinhphuc.dev</span></div><div class="browser-content"><div class="browser-nav"></div><div class="browser-hero"><div><b>HELLO, I'M PHUC</b><span>Creative developer</span><small></small></div><div class="browser-avatar">V·P</div></div><div class="browser-cards"><i></i><i></i><i></i></div></div></div>
+              <span class="art-label">HTML · CSS · JS</span>
+            </div>
+            <div class="project-body"><div class="project-meta"><span>WEBSITE</span><span>02</span></div><h3>Portfolio cá nhân</h3><p>Website giới thiệu bản thân, kỹ năng và dự án. Tập trung vào giao diện responsive, hiệu ứng chuyển động và các chức năng tương tác cơ bản.</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><button class="text-button project-detail" type="button" data-project="portfolio">Xem chi tiết <span>↗</span></button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section" id="more">
+      <div class="container more-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / MORE ABOUT ME</p>
+          <h2>Học hỏi mỗi ngày, <span class="gradient-text">tiến bộ mỗi ngày</span></h2>
+          <p>Mình tin rằng kỹ năng được cải thiện tốt nhất thông qua việc học và thực hành thường xuyên.</p>
+        </div>
+        <div class="more-card reveal"><div class="more-icon">♧</div><div><h3>Chứng chỉ & giải thưởng</h3><p>Hiện tại: Chưa có chứng chỉ hoặc giải thưởng nổi bật để giới thiệu.</p></div><span class="more-index">01</span></div>
+        <div class="more-card reveal"><div class="more-icon">✦</div><div><h3>Sở thích</h3><p>Tìm hiểu công nghệ mới, thực hành lập trình, khám phá các sản phẩm số và chơi game giải trí.</p></div><span class="more-index">02</span></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-soft" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">05 / GET IN TOUCH</p>
+          <h2>Cùng trao đổi về <span class="gradient-text">công nghệ nhé!</span></h2>
+          <p>Nếu bạn muốn trao đổi về học tập, lập trình hoặc các dự án, hãy gửi lời nhắn cho mình qua biểu mẫu bên cạnh.</p>
+          <div class="contact-detail"><span class="contact-detail-icon">✉</span><div><small>EMAIL</small><strong>phuc062006@gmail.com</strong></div></div>
+          <div class="contact-detail"><span class="contact-detail-icon">⌖</span><div><small>LOCATION</small><strong>TP. Hồ Chí Minh, Việt Nam</strong></div></div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-heading"><h3>Gửi lời nhắn</h3><span>✳</span></div>
+          <div class="form-group"><label for="full-name">Họ và tên</label><input id="full-name" name="fullName" type="text" placeholder="Nhập họ và tên" required minlength="2"><small class="field-error" id="name-error"></small></div>
+          <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="example@email.com" required><small class="field-error" id="email-error"></small></div>
+          <div class="form-group"><label for="message">Nội dung</label><textarea id="message" name="message" rows="4" placeholder="Bạn muốn trao đổi điều gì?" required minlength="10"></textarea><small class="field-error" id="message-error"></small></div>
+          <button class="button button-primary submit-button" type="submit">Kiểm tra thông tin <span aria-hidden="true">↗</span></button>
+          
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><a class="brand" href="#home">V<span>·</span>P</a><p>Được thiết kế và xây dựng bởi Vĩnh Phúc.</p><a href="#top" class="back-top">Lên đầu trang ↑</a></div>
+    <div class="container copyright">© <span id="year"></span> Hoàng Vĩnh Phúc. All rights reserved.</div>
+  </footer>
+
+  <!-- Modal hiển thị thông tin dự án -->
+  <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-box">
+      <button class="modal-close icon-button" type="button" aria-label="Đóng cửa sổ" data-close-modal>×</button>
+      <p class="eyebrow">PROJECT DETAILS</p>
+      <h2 id="modal-title">Tên dự án</h2>
+      <p id="modal-description"></p>
+      <div class="tag-list" id="modal-tags"></div>
+      <p class="modal-note" id="modal-note"></p>
     </div>
+  </div>
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
